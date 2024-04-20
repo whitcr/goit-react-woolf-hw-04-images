@@ -8,7 +8,7 @@ import { fetchImg } from './api/api.js';
 import './App.css';
 
 export const App = () => {
-  const initialQuery = '';
+  const initialQuery = ' ';
   const initialPage = 1;
 
   const [images, setImages] = useState([]);
