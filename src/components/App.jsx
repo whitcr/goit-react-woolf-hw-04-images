@@ -20,6 +20,9 @@ export const App = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
+    if (!query) {
+      return;
+    }
     if (initialQuery !== query || initialPage !== currentPage) {
       const fetchImages = () => {
         setIsLoading(true);
@@ -35,7 +38,7 @@ export const App = () => {
       };
       fetchImages();
     }
-  }, [currentPage, initialPage, initialQuery, query]);
+  }, [currentPage, query]);
 
   const handleSearchSubmit = newQuery => {
     setQuery(newQuery);
@@ -44,7 +47,7 @@ export const App = () => {
   };
 
   const handleLoadMore = () => {
-    setCurrentPage(prevState => prevState.currentPage + 1);
+    setCurrentPage(prevState => prevState + 1);
   };
 
   const handleImageClick = largeImageURL => {
